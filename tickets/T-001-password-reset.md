@@ -15,7 +15,7 @@
    ```powershell
    Get-ADUser -Identity "jsmith" -Properties LockedOut, Enabled
 
-Remediation
+## Remediation
 
 Reset password and enforced password change at next logon:
    ```powershell

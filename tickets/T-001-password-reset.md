@@ -14,3 +14,10 @@
 2. Checked account state on DC01 via PowerShell:
    ```powershell
    Get-ADUser -Identity "jsmith" -Properties LockedOut, Enabled
+
+Remediation
+
+Reset password and enforced password change at next logon:
+   ```powershell
+   Set-ADAccountPassword -Identity "jsmith" -NewPassword (ConvertTo-SecureString "TempPass123!" -AsPlainText -Force)
+Set-ADUser -Identity "jsmith" -ChangePasswordAtLogon $true

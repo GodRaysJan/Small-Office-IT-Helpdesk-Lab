@@ -1,0 +1,14 @@
+Identify Lockout Source (Event ID 4740) 
+
+Search Security Event Logs on DC01:
+
+`Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4740} | Select-Object TimeCreated, Message`
+
+Account Remediation : Unlock Account
+
+`Unlock-ADAccount -Identity "<SamAccountName>"`
+
+Reset Password & Force Change:
+
+`Set-ADAccountPassword -Identity "<SamAccountName>" -NewPassword (ConvertTo-SecureString "<TempPassword>" -AsPlainText -Force)
+Set-ADUser -Identity "<SamAccountName>" -ChangePasswordAtLogon $true`

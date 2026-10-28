@@ -1,0 +1,15 @@
+# Ticket T-002: User Account Lockout
+
+- **Ticket ID**: T-002
+- **Requester**: Jane Smith (`jsmith`)
+- **Category**: Account and Access
+- **Priority**: High
+- **Status**: Closed
+
+## User Reported Symptom
+"My account is locked and displays an error when trying to log in."
+
+## Diagnostic Steps
+1. Executed lockout search on DC01:
+   ```powershell
+   Search-ADAccount -LockedOut
